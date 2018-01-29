@@ -1,0 +1,1 @@
+http://www.codejava.net/frameworks/hibernate/hibernate-one-to-many-association-annotations-example
