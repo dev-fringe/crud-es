@@ -7,6 +7,7 @@ import org.hibernate.StatelessSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
+import scala.collection.JavaConversions;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -73,7 +74,7 @@ public class CrudService {
         products.add(laptop);
         products.add(phone);
         products.add(tablet);
-        category.setProducts(products);
+        category.products_$eq(products);
         s.save(category);
         s.getTransaction().commit();
         s.close();
@@ -92,6 +93,6 @@ public class CrudService {
         s2.getTransaction().commit();
         s2.close();
 
-        System.out.println(((Session) em.getDelegate()).getSessionFactory().openSession().createQuery("from Course").list());
+   //    System.out.println(((Session) em.getDelegate()).getSessionFactory().openSession().createQuery("from Course").list());
     }
 }
