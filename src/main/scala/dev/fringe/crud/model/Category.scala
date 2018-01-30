@@ -1,6 +1,7 @@
 package dev.fringe.crud.model
 
 import javax.persistence._
+import java.util.Set
 
 @Entity
 @Table(name = "CATEGORY")
@@ -13,7 +14,7 @@ class Category (cname : String){
     var name : String = cname
 
     @OneToMany(mappedBy = "category", cascade = Array(CascadeType.ALL))
-    var products : java.util.Set[Product] = _
+    var products : Set[Product] = _
 
     override def toString = s"Category($id, $name, $products)"
 }

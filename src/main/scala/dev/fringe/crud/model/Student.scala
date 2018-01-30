@@ -2,7 +2,7 @@ package dev.fringe.crud.model
 
 import java.util.Set
 import javax.persistence._
-;
+import java.util.Set
 
 
 @Entity
@@ -17,7 +17,7 @@ import javax.persistence._
     var studentName : String = s
     @ManyToMany(cascade = Array(CascadeType.ALL))
     @JoinTable(name = "STUDENT_COURSE", joinColumns=Array(new JoinColumn(name="keyid")), inverseJoinColumns = Array( new JoinColumn(name = "COURSE_ID") ))
-    var courses : java.util.Set[Course] = c
+    var courses : Set[Course] = c
 
     override def toString = s"Student($studentId, $studentName, $courses)"
 }

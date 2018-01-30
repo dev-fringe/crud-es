@@ -4,16 +4,16 @@ import javax.persistence._
 
 @Entity
 @Table(name = "PROD")
-class Product (cname : String, cate : Category ){
+class Product (n : String, c : Category ){
     @Id
     @Column(name = "PRODUCT_ID")
     @GeneratedValue
     var id : Long = _
-    var name: String = cname
+    var name: String = n
 
     @ManyToOne
     @JoinColumn(name = "CATEGORY_ID")
-    var category : Category = cate
+    var category : Category = c
 
     override def toString = s"Product($name, $id, $category)"
 }

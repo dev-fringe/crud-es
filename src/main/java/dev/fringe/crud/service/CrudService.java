@@ -7,7 +7,6 @@ import org.hibernate.StatelessSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
-import scala.collection.JavaConversions;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -27,7 +26,7 @@ public class CrudService {
     private EntityManagerFactory entityManagerFactory;
 
     @Autowired
-    private ApplicationEventPublisher applicationEventPublisher;
+    private ApplicationEventPublisher publisher;
 
     public void service(){
          /*       Session session = sessionFactory.openSession();
@@ -58,7 +57,7 @@ public class CrudService {
         One one = new One("HDLEE");
         Event oe = new Event(this, one);
         session.insert(one);
-        applicationEventPublisher.publishEvent(oe);
+        publisher.publishEvent(oe);
         session.close();
 
         Category category = new Category("Computer");
