@@ -9,12 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.ApplicationEventPublisher
 import org.springframework.stereotype.Service
 import javax.persistence.EntityManager
-import javax.persistence.EntityManagerFactory
 import javax.persistence.PersistenceContext
 
 import dev.fringe.crud.model.{Course, One, Student}
 
-@Service class CrudService @Autowired()(entityManagerFactory:EntityManagerFactory, publisher:ApplicationEventPublisher) {
+@Service class CrudService @Autowired()(publisher:ApplicationEventPublisher) {
 
     @PersistenceContext
     val em : EntityManager = null
