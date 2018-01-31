@@ -14,8 +14,6 @@ import javax.persistence.EntityManagerFactory;
 @Configuration
 @EnableTransactionManagement
 public class ContextTransaction {
-    @Autowired private ContextOrm hibernate;
-
 /*    @Bean
     public PlatformTransactionManager getTransactionManager() {
         HibernateTransactionManager transactionManager = new HibernateTransactionManager();
@@ -23,15 +21,15 @@ public class ContextTransaction {
         return transactionManager;
     }*/
 
-    @Bean
-    public PlatformTransactionManager transactionManager(EntityManagerFactory emf){
-        JpaTransactionManager transactionManager = new JpaTransactionManager();
-        transactionManager.setEntityManagerFactory(emf);
-        return transactionManager;
-    }
-
-    @Bean
-    public PersistenceExceptionTranslationPostProcessor exceptionTranslation(){
-        return new PersistenceExceptionTranslationPostProcessor();
-    }
+//    @Bean
+//    public PlatformTransactionManager transactionManager(EntityManagerFactory emf){
+//        JpaTransactionManager transactionManager = new JpaTransactionManager();
+//        transactionManager.setEntityManagerFactory(emf);
+//        return transactionManager;
+//    }
+//
+//    @Bean
+//    public PersistenceExceptionTranslationPostProcessor exceptionTranslation(){
+//        return new PersistenceExceptionTranslationPostProcessor();
+//    }
 }
