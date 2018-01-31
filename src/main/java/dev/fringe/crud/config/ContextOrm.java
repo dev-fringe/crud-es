@@ -27,12 +27,4 @@ public class ContextOrm {
         em.setPersistenceXmlLocation("classpath*:persistence.xml");
         return em;
     }
-//    @Bean
-//    public LocalSessionFactoryBean getSessionFactory() {
-//        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-//        sessionFactory.setDataSource(ds.dataSource());
-//        sessionFactory.setPackagesToScan("dev.fringe.crud.model");
-//        sessionFactory.setHibernateProperties(prop.properties());
-//        return sessionFactory;
-//    }
 }
