@@ -11,7 +11,7 @@ import reactor.ipc.netty.http.server.HttpServer;
 
 @ComponentScan
 @EnableWebFlux
-public class App{
+public class App {
     public static void main(String[] args) {
         ApplicationContext context =  new AnnotationConfigApplicationContext(App.class);
         HttpHandler handler = WebHttpHandlerBuilder.applicationContext(context).build();

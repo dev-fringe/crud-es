@@ -12,7 +12,7 @@ class HomeController @Autowired()(service:CrudService) {
   @RequestMapping(Array("/"))
   @ResponseBody
   def postController(): String = {
-    service.service();
+    service.service()
     "Hello"
   }
 }
