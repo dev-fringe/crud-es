@@ -1,18 +1,22 @@
 package dev.fringe.crud;
 
-import dev.fringe.crud.service.CrudService;
-import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.http.server.reactive.HttpHandler;
+import org.springframework.http.server.reactive.ReactorHttpHandlerAdapter;
+import org.springframework.web.reactive.config.EnableWebFlux;
+import org.springframework.web.server.adapter.WebHttpHandlerBuilder;
+import reactor.ipc.netty.http.server.HttpServer;
 
 @ComponentScan
-public class App implements InitializingBean{
-    @Autowired private CrudService crud;
+@EnableWebFlux
+public class App{
     public static void main(String[] args) {
-         new AnnotationConfigApplicationContext(App.class);
-    }
-    public void afterPropertiesSet() throws Exception {
-        crud.service();
+        ApplicationContext context =  new AnnotationConfigApplicationContext(App.class);
+        HttpHandler handler = WebHttpHandlerBuilder.applicationContext(context).build();
+        ReactorHttpHandlerAdapter adapter = new ReactorHttpHandlerAdapter(handler);
+        HttpServer server = HttpServer.create("localhost", 8090);
+        server.newHandler(adapter).block();
     }
 }

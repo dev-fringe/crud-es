@@ -9,6 +9,6 @@ class One (username: String){
   @GeneratedValue(strategy=GenerationType.IDENTITY)
   var id : Int = _
   var name : String = username
-
+  def this() = this(null)
   override def toString = s"One($id, $name)"
 }
