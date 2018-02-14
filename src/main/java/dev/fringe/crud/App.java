@@ -13,10 +13,6 @@ import reactor.ipc.netty.http.server.HttpServer;
 @EnableWebFlux
 public class App {
     public static void main(String[] args) {
-        ApplicationContext context =  new AnnotationConfigApplicationContext(App.class);
-        HttpHandler handler = WebHttpHandlerBuilder.applicationContext(context).build();
-        ReactorHttpHandlerAdapter adapter = new ReactorHttpHandlerAdapter(handler);
-        HttpServer server = HttpServer.create("localhost", 8090);
-        server.newHandler(adapter).block();
+        HttpServer.create("localhost", 8090).newHandler(new ReactorHttpHandlerAdapter(WebHttpHandlerBuilder.applicationContext(new AnnotationConfigApplicationContext(App.class)).build())).block();
     }
 }

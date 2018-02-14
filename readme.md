@@ -5,4 +5,4 @@ https://www.youtube.com/watch?v=holjbuSbv3k
 
 `The App class is difficult to switch to Scala.`
 `Generic source is preparing to switch to Scala source`
-`Setting up the Spring framework Java Config is a conversion error to scala,`
+~~`Setting up the Spring framework Java Config is a conversion error to scala,`~~
