@@ -34,7 +34,6 @@ import dev.fringe.crud.model.{Course, One, Student}
 
         val student1:Student = new Student("Eswar", courses)
         val student2:Student = new Student("Joe", courses)
-        System.out.println(student1)
         s2.save(student1);
         s2.save(student2);
         s2.getTransaction().commit();

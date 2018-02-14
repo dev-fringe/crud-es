@@ -9,8 +9,7 @@ import org.springframework.context.annotation.{Bean, Configuration}
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean
 import org.springframework.orm.jpa.vendor.{HibernateJpaDialect, HibernateJpaVendorAdapter}
 
-@Configuration
-class ContextOrm  @Autowired()(dataSource : DataSource , properties:Properties) {
+@Configuration class ContextOrm  @Autowired()(dataSource : DataSource , properties:Properties) {
   @Bean def entityManagerFactory: LocalContainerEntityManagerFactoryBean = {
     val em = new LocalContainerEntityManagerFactoryBean
     em.setDataSource(dataSource)
