@@ -6,11 +6,6 @@ import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.{RequestMapping, ResponseBody}
 
 @Controller class HomeController @Autowired()(service:CrudService) {
-
-  @RequestMapping(Array("/"))
-  @ResponseBody
-  def postController(): String = {
-    service.service()
-    "Hello"
-  }
+  @RequestMapping(Array("/")) def get(): String = "index"
+  @RequestMapping(Array("/test")) @ResponseBody def get1(): String = "index"
 }

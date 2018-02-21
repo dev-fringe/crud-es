@@ -11,14 +11,17 @@ import org.springframework.stereotype.Service
 import javax.persistence.EntityManager
 import javax.persistence.PersistenceContext
 
-import dev.fringe.crud.model.{Course, One, Student}
+import dev.fringe.crud.model.Course
+import dev.fringe.crud.model.One
+import dev.fringe.crud.model.Student
+
 
 @Service class CrudService @Autowired()(publisher:ApplicationEventPublisher) {
 
     @PersistenceContext
     val em : EntityManager = null
 
-    def service(){
+    def service() : String = {
         val s1 = em.getDelegate.asInstanceOf[Session].getSessionFactory.openStatelessSession()
         val one = new One("HDLEE")
         val oe = new Event(this, one)
@@ -34,9 +37,10 @@ import dev.fringe.crud.model.{Course, One, Student}
 
         val student1:Student = new Student("Eswar", courses)
         val student2:Student = new Student("Joe", courses)
-        s2.save(student1);
-        s2.save(student2);
-        s2.getTransaction().commit();
-        s2.close();
+        s2.save(student1)
+        s2.save(student2)
+        s2.getTransaction().commit()
+        s2.close()
+        "Hello"
     }
 }

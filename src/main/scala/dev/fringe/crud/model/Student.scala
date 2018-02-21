@@ -1,6 +1,5 @@
 package dev.fringe.crud.model
 
-import java.util.Set
 import javax.persistence._
 import java.util.Set
 
